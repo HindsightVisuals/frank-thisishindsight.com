@@ -2,118 +2,118 @@
   "logos": [
     {
       "title": "Belay Bioscience",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/00_Brand Work/00_Logofolio/Belay_FullLockUp_TwoColorLight.svg"
+      "src": "00_Brand Work/00_Logofolio/Belay_FullLockUp_TwoColorLight.svg"
     },
     {
       "title": "Belay icon",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/00_Brand Work/00_Logofolio/Belay_Icon_Light.svg"
+      "src": "00_Brand Work/00_Logofolio/Belay_Icon_Light.svg"
     },
     {
       "title": "Eternal",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/00_Brand Work/00_Logofolio/Eternal Wordmark.svg"
+      "src": "00_Brand Work/00_Logofolio/Eternal Wordmark.svg"
     },
     {
       "title": "Eternal icon",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/00_Brand Work/00_Logofolio/Eternal Logo.svg"
+      "src": "00_Brand Work/00_Logofolio/Eternal Logo.svg"
     },
     {
       "title": "Fusion wordmark",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/00_Brand Work/00_Logofolio/Fusion Wordark.svg"
+      "src": "00_Brand Work/00_Logofolio/Fusion Wordark.svg"
     },
     {
       "title": "Fusion icon",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/00_Brand Work/00_Logofolio/Fusion Icon.svg"
+      "src": "00_Brand Work/00_Logofolio/Fusion Icon.svg"
     },
     {
       "title": "Brella",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/00_Brand Work/00_Logofolio/Brella White.svg"
+      "src": "00_Brand Work/00_Logofolio/Brella White.svg"
     },
     {
       "title": "Brella icon",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/00_Brand Work/00_Logofolio/Icon For White.svg"
+      "src": "00_Brand Work/00_Logofolio/Icon For White.svg"
     },
     {
       "title": "Otto",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/00_Brand Work/00_Logofolio/0tt0__Otto_Wordmark_White.svg",
+      "src": "00_Brand Work/00_Logofolio/0tt0__Otto_Wordmark_White.svg",
       "knockout": [
         "#1f1f1f"
       ]
     },
     {
       "title": "Otto icon",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/00_Brand Work/00_Logofolio/0tt0__Otto_Logo_White.svg",
+      "src": "00_Brand Work/00_Logofolio/0tt0__Otto_Logo_White.svg",
       "knockout": [
         "#1f1f1f"
       ]
     },
     {
       "title": "Integrate",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/00_Brand Work/00_Logofolio/Integrate Logo.svg",
+      "src": "00_Brand Work/00_Logofolio/Integrate Logo.svg",
       "knockout": [
         "#fff"
       ]
     },
     {
       "title": "Integrate icon",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/00_Brand Work/00_Logofolio/Integrate Icon.svg",
+      "src": "00_Brand Work/00_Logofolio/Integrate Icon.svg",
       "knockout": [
         "#fff"
       ]
     },
     {
       "title": "WES",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/00_Brand Work/00_Logofolio/White Wordmark.svg"
+      "src": "00_Brand Work/00_Logofolio/White Wordmark.svg"
     },
     {
       "title": "WES icon",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/00_Brand Work/00_Logofolio/White Logo.svg"
+      "src": "00_Brand Work/00_Logofolio/White Logo.svg"
     },
     {
       "title": "Roamly",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/00_Brand Work/00_Logofolio/Roammly.svg"
+      "src": "00_Brand Work/00_Logofolio/Roammly.svg"
     },
     {
       "title": "Featured",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/00_Brand Work/00_Logofolio/FeaturedLogo.svg"
+      "src": "00_Brand Work/00_Logofolio/FeaturedLogo.svg"
     }
   ],
   "motion": [
     {
       "title": "Fusion",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/01_Animated Logos/Fusion Animated Logo.mp4",
+      "src": "01_Animated Logos/Fusion Animated Logo.mp4",
       "start": 7.34,
       "end": 15.46
     },
     {
       "title": "Juan Valdez",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/01_Animated Logos/Juan Valdez Aninated Logo + Packaging.mp4",
+      "src": "01_Animated Logos/Juan Valdez Aninated Logo + Packaging.mp4",
       "start": 25,
       "end": 33.42
     },
     {
       "title": "Featured",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/01_Animated Logos/Logo Animation.mp4",
+      "src": "01_Animated Logos/Logo Animation.mp4",
       "poster": 3.5
     },
     {
       "title": "Kursa",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/01_Animated Logos/KursaLogo.mov"
+      "src": "01_Animated Logos/KursaLogo.mov"
     },
     {
       "title": "Thought Process",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/01_Animated Logos/ThoughtProcess_Clips_00.mp4"
+      "src": "01_Animated Logos/ThoughtProcess_Clips_00.mp4"
     }
   ],
   "guides": [
     {
       "title": "Eternal",
       "note": "Brand guidelines",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/00_Brand Work/Eternal Brand Guide.pdf"
+      "src": "00_Brand Work/Eternal Brand Guide.pdf"
     },
     {
       "title": "Belay Bioscience",
       "note": "Brand guidelines",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/00_Brand Work/Belay_BrandGuide.pdf"
+      "src": "00_Brand Work/Belay_BrandGuide.pdf"
     }
   ],
   "sites": [
@@ -136,53 +136,53 @@
   "artwork": [
     {
       "title": "VCTRE",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/02_Album Artworks/VCTRE_CoverArtwork_073125.png"
+      "src": "02_Album Artworks/VCTRE_CoverArtwork_073125.png"
     },
     {
       "title": "VCTRE single",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/02_Album Artworks/VCTRE_SingleArtwork_081225.png"
+      "src": "02_Album Artworks/VCTRE_SingleArtwork_081225.png"
     },
     {
       "title": "Humandala",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/02_Album Artworks/HDALA_CloakDagger_Version2_Edit.png"
+      "src": "02_Album Artworks/HDALA_CloakDagger_Version2_Edit.png"
     },
     {
       "title": "Fowl Play",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/02_Album Artworks/FowlPlay_0304_SquareFormat.png"
+      "src": "02_Album Artworks/FowlPlay_0304_SquareFormat.png"
     },
     {
       "title": "Fylum",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/02_Album Artworks/Fylum_Artwork_Final.png"
+      "src": "02_Album Artworks/Fylum_Artwork_Final.png"
     },
     {
       "title": "Mindtality",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/02_Album Artworks/Mindtality_Downtempo_V02_Cover.png"
+      "src": "02_Album Artworks/Mindtality_Downtempo_V02_Cover.png"
     },
     {
       "title": "EOS — Continuum",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/02_Album Artworks/EOS_Continuum.png"
+      "src": "02_Album Artworks/EOS_Continuum.png"
     },
     {
       "title": "FIKA",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/02_Album Artworks/3K_Artwork@0.5x.png"
+      "src": "02_Album Artworks/3K_Artwork@0.5x.png"
     }
   ],
   "flyers": [
     {
       "title": "Cohesion",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/03_Flyers/Cohesion_FlyerV5.png"
+      "src": "03_Flyers/Cohesion_FlyerV5.png"
     },
     {
       "title": "Cohesion — animated",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/03_Flyers/CohesionFlyer_V3_Animated.mp4"
+      "src": "03_Flyers/CohesionFlyer_V3_Animated.mp4"
     },
     {
       "title": "Humandala — Black Box",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/03_Flyers/BB_HDALA_1017_Poster.png"
+      "src": "03_Flyers/BB_HDALA_1017_Poster.png"
     },
     {
       "title": "Humandala — Black Box — animated",
-      "src": "C:/Users/Adam/Dropbox/Hindsight/01_Portfolio Site/00_Assets and Content/04_Portfolio/03_Flyers/HumandalaBlackBox_1017_Flyer_4x5.mp4"
+      "src": "03_Flyers/HumandalaBlackBox_1017_Flyer_4x5.mp4"
     }
   ],
   "extensions": []

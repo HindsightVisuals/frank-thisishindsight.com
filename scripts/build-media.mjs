@@ -1,6 +1,6 @@
 // Turns the sources listed in content/content.json into web media under media/, and writes media/manifest.json,
 // which the page renders from. Run: npm run media. Outputs newer than their source are skipped; outputs no
-// longer listed are deleted. Sources are only read. `src` is relative to the repo root, or absolute.
+// longer listed are deleted. Sources are only read. `src` is relative to the repo root, or to the content root.
 import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -22,10 +22,15 @@ const fresh = (out, src) => fs.existsSync(out) && fs.statSync(out).mtimeMs > fs.
 const slugify = (s, i) => `${String(i + 1).padStart(2, '0')}-${String(s || 'item').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
 const url = p => p.split(path.sep).join('/');
 
+// Where the originals live on this machine. Kept out of the repo (it is a personal path): the CONTENT_ROOT
+// environment variable, or the one line in the untracked file .content-root.
+const ROOT = process.env.CONTENT_ROOT || (fs.existsSync('.content-root') ? fs.readFileSync('.content-root', 'utf8').trim() : '');
+
 function source(item, kind) {
   if (!item.src) throw new Error(`${kind} "${item.title}" has no src`);
-  if (!fs.existsSync(item.src)) throw new Error(`${kind} "${item.title}": source not found: ${item.src}`);
-  return item.src;
+  const found = [item.src, ...(ROOT ? [path.join(ROOT, item.src)] : [])].find(p => fs.existsSync(p));
+  if (!found) throw new Error(`${kind} "${item.title}": source not found: ${item.src}${ROOT ? '' : ' (no content root set, see README)'}`);
+  return found;
 }
 
 function run(args) {

@@ -14,7 +14,9 @@ Site screenshots live in `content/sites/`. `content/placeholder/` holds the stan
 ## Adding the real work
 
 1. List the work in `content/content.json`. Each `src` is a path to the original file, relative to this repo or
-   absolute (a Dropbox path is fine; sources are only read).
+   to the content root: the folder the originals live in, named by the `CONTENT_ROOT` environment variable or the
+   one line in an untracked `.content-root` file. Sources are only read. Keep machine paths out of this file: the
+   repo is public.
 
    | Section | `src` | Other fields |
    | --- | --- | --- |
