@@ -121,7 +121,7 @@ async function logos(items) {
       ar = m.width / m.height;
     }
     // ar: the artwork's width / height, which the page uses to give every logo the same visual weight
-    out.push({ title: l.title ?? '', src: url(file), bg: l.bg === 'light' ? 'light' : 'dark', ar: +(ar ?? 1).toFixed(3) });
+    out.push({ title: l.title ?? '', src: url(file), bg: l.bg === 'light' ? 'light' : 'dark', ar: +(ar ?? 1).toFixed(3), ...(l.scale ? { scale: l.scale } : {}) });
   }
   console.log(`logos: ${out.length}`);
   return out;

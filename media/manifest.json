@@ -52,13 +52,15 @@
       "title": "Otto",
       "src": "media/logos/09-otto.svg",
       "bg": "dark",
-      "ar": 2.735
+      "ar": 2.735,
+      "scale": 1.106
     },
     {
       "title": "Otto icon",
       "src": "media/logos/10-otto-icon.svg",
       "bg": "dark",
-      "ar": 1.011
+      "ar": 1.011,
+      "scale": 0.96
     },
     {
       "title": "Integrate",

@@ -20,7 +20,7 @@ Site screenshots live in `content/sites/`. `content/placeholder/` holds the stan
 
    | Section | `src` | Other fields |
    | --- | --- | --- |
-   | `logos` | SVG, PNG, JPG | `title`. SVGs are recoloured white on black; `"knockout": ["#1f1f1f"]` lists colours to turn black instead (a background plate, cut-out detail), `"color": "original"` leaves the file as it is, `"bg": "light"` gives a white tile |
+   | `logos` | SVG, PNG, JPG | `title`. SVGs are recoloured white on black; `"knockout": ["#1f1f1f"]` lists colours to turn black instead (a background plate, cut-out detail), `"color": "original"` leaves the file as it is, `"bg": "light"` gives a white tile. Logos are cropped to their artwork and sized to equal visual weight; `"scale": 1.1` makes one 10% larger |
    | `motion` | MP4, MOV | `title`. Encoded muted, loops while on screen. Optional `start` / `end` (seconds) cut a piece out of a longer file; `poster` (seconds) picks the still when the clip ends on black |
    | `guides` | PDF | `title`, `note`; optional `"pages": [1, 2, 5]` to show only some pages |
    | `sites` | a screenshot | `title`, `url`. Cropped to 16:10 from the top |

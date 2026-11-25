@@ -38,7 +38,7 @@ export function logoBox(ar, area = LOGO_AREA) {
 function renderLogos(root, items) {
   for (const l of items) {
     const logo = img(l.src, `${l.title} logo`);
-    const { w, h } = logoBox(l.ar);
+    const { w, h } = logoBox(l.ar, LOGO_AREA * (l.scale ?? 1) ** 2);   // `scale` nudges one logo's width and height
     logo.style.width = `${(w * 100).toFixed(2)}%`;
     logo.style.height = `${(h * 100).toFixed(2)}%`;
     root.append(el('figure', { className: `tile ${l.bg === 'light' ? 'light' : ''}` },

@@ -37,14 +37,16 @@
       "src": "00_Brand Work/00_Logofolio/0tt0__Otto_Wordmark_White.svg",
       "knockout": [
         "#1f1f1f"
-      ]
+      ],
+      "scale": 1.106
     },
     {
       "title": "Otto icon",
       "src": "00_Brand Work/00_Logofolio/0tt0__Otto_Logo_White.svg",
       "knockout": [
         "#1f1f1f"
-      ]
+      ],
+      "scale": 0.96
     },
     {
       "title": "Integrate",
