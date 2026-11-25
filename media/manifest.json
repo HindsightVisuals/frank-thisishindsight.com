@@ -1,0 +1,153 @@
+{
+  "logos": [
+    {
+      "title": "Placeholder 01",
+      "src": "media/logos/01-placeholder-01.svg",
+      "bg": "dark"
+    },
+    {
+      "title": "Placeholder 02",
+      "src": "media/logos/02-placeholder-02.svg",
+      "bg": "dark"
+    },
+    {
+      "title": "Placeholder 03",
+      "src": "media/logos/03-placeholder-03.svg",
+      "bg": "dark"
+    },
+    {
+      "title": "Placeholder 04",
+      "src": "media/logos/04-placeholder-04.svg",
+      "bg": "light"
+    },
+    {
+      "title": "Placeholder 05",
+      "src": "media/logos/05-placeholder-05.svg",
+      "bg": "dark"
+    },
+    {
+      "title": "Placeholder 06",
+      "src": "media/logos/06-placeholder-06.svg",
+      "bg": "dark"
+    }
+  ],
+  "motion": [
+    {
+      "title": "Placeholder clip A",
+      "src": "media/motion/01-placeholder-clip-a.mp4",
+      "poster": "media/motion/01-placeholder-clip-a.jpg"
+    },
+    {
+      "title": "Placeholder clip B",
+      "src": "media/motion/02-placeholder-clip-b.mp4",
+      "poster": "media/motion/02-placeholder-clip-b.jpg"
+    },
+    {
+      "title": "Placeholder clip C",
+      "src": "media/motion/03-placeholder-clip-c.mp4",
+      "poster": "media/motion/03-placeholder-clip-c.jpg"
+    }
+  ],
+  "guides": [
+    {
+      "title": "Placeholder guide A",
+      "note": "Brand guidelines",
+      "w": 1200,
+      "h": 675,
+      "pages": [
+        {
+          "src": "media/guides/01-placeholder-guide-a/01-2000.webp",
+          "small": "media/guides/01-placeholder-guide-a/01-1000.webp"
+        },
+        {
+          "src": "media/guides/01-placeholder-guide-a/02-2000.webp",
+          "small": "media/guides/01-placeholder-guide-a/02-1000.webp"
+        },
+        {
+          "src": "media/guides/01-placeholder-guide-a/03-2000.webp",
+          "small": "media/guides/01-placeholder-guide-a/03-1000.webp"
+        },
+        {
+          "src": "media/guides/01-placeholder-guide-a/04-2000.webp",
+          "small": "media/guides/01-placeholder-guide-a/04-1000.webp"
+        },
+        {
+          "src": "media/guides/01-placeholder-guide-a/05-2000.webp",
+          "small": "media/guides/01-placeholder-guide-a/05-1000.webp"
+        },
+        {
+          "src": "media/guides/01-placeholder-guide-a/06-2000.webp",
+          "small": "media/guides/01-placeholder-guide-a/06-1000.webp"
+        },
+        {
+          "src": "media/guides/01-placeholder-guide-a/07-2000.webp",
+          "small": "media/guides/01-placeholder-guide-a/07-1000.webp"
+        },
+        {
+          "src": "media/guides/01-placeholder-guide-a/08-2000.webp",
+          "small": "media/guides/01-placeholder-guide-a/08-1000.webp"
+        }
+      ]
+    },
+    {
+      "title": "Placeholder guide B",
+      "note": "Brand guidelines",
+      "w": 1200,
+      "h": 675,
+      "pages": [
+        {
+          "src": "media/guides/02-placeholder-guide-b/01-2000.webp",
+          "small": "media/guides/02-placeholder-guide-b/01-1000.webp"
+        },
+        {
+          "src": "media/guides/02-placeholder-guide-b/02-2000.webp",
+          "small": "media/guides/02-placeholder-guide-b/02-1000.webp"
+        },
+        {
+          "src": "media/guides/02-placeholder-guide-b/03-2000.webp",
+          "small": "media/guides/02-placeholder-guide-b/03-1000.webp"
+        },
+        {
+          "src": "media/guides/02-placeholder-guide-b/04-2000.webp",
+          "small": "media/guides/02-placeholder-guide-b/04-1000.webp"
+        },
+        {
+          "src": "media/guides/02-placeholder-guide-b/05-2000.webp",
+          "small": "media/guides/02-placeholder-guide-b/05-1000.webp"
+        }
+      ]
+    }
+  ],
+  "sites": [
+    {
+      "title": "Placeholder site A",
+      "url": "https://example.com",
+      "src": "media/sites/01-placeholder-site-a.webp"
+    },
+    {
+      "title": "Placeholder site B",
+      "url": "https://example.com",
+      "src": "media/sites/02-placeholder-site-b.webp"
+    }
+  ],
+  "extensions": [
+    {
+      "title": "Placeholder merch",
+      "src": "media/ext/01-placeholder-merch-1600.webp",
+      "small": "media/ext/01-placeholder-merch-800.webp",
+      "wide": true
+    },
+    {
+      "title": "Placeholder poster",
+      "src": "media/ext/02-placeholder-poster-1600.webp",
+      "small": "media/ext/02-placeholder-poster-800.webp",
+      "wide": false
+    },
+    {
+      "title": "Placeholder signage",
+      "src": "media/ext/03-placeholder-signage-1600.webp",
+      "small": "media/ext/03-placeholder-signage-800.webp",
+      "wide": false
+    }
+  ]
+}

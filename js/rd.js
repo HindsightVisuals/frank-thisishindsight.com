@@ -14,7 +14,7 @@ const RESEED_JITTER_S = 2;
 export const BASE_OVERSCAN = 1.03;   // margin so the parallax never shows the clamped texture edge
 export const PARALLAX_MAX = 0.012;   // uv; must stay under (1 - 1/BASE_OVERSCAN) / 2 ≈ 0.0146
 const PARALLAX_EASE = 0.06;   // per-frame lerp toward the target
-const PATTERN_LUM = 0.24;     // the pattern's brightness on black: faint, so the reels win
+const PATTERN_LUM = 0.24;     // the pattern's brightness on black: faint, so the work wins
 const IDLE_PERIOD_S = 40;     // touch screens: slow Lissajous drift instead of a cursor
 
 const VS = `attribute vec2 p; varying vec2 vUv; void main(){ vUv = p * 0.5 + 0.5; gl_Position = vec4(p, 0., 1.); }`;

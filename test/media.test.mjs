@@ -6,34 +6,41 @@ import path from 'node:path';
 const MB = 1024 * 1024;
 const size = p => fs.statSync(p).size;
 const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]);
+const manifest = JSON.parse(fs.readFileSync('media/manifest.json', 'utf8'));
+const content = JSON.parse(fs.readFileSync('content/content.json', 'utf8'));
+
+// Every media path the page will request.
+const refs = [
+  ...manifest.logos.map(l => l.src),
+  ...manifest.motion.flatMap(m => [m.src, m.poster]),
+  ...manifest.guides.flatMap(g => g.pages.flatMap(p => [p.src, p.small])),
+  ...manifest.sites.map(s => s.src),
+  ...manifest.extensions.flatMap(e => [e.src, e.small]),
+];
 
 test('loader video exists and is under 3 MB', () => {
   assert.ok(size('media/video/loader.mp4') < 3 * MB);
 });
 
-test('both reels exist and are each under 25 MB', () => {
-  for (const r of ['demo-reel', 'live-reel']) assert.ok(size(`media/video/${r}.mp4`) < 25 * MB, r);
+test('the manifest matches content.json (run `npm run media` after editing it)', () => {
+  for (const key of ['logos', 'motion', 'guides', 'sites', 'extensions']) {
+    assert.deepEqual(manifest[key].map(i => i.title), (content[key] ?? []).map(i => i.title), key);
+  }
 });
 
-test('both reel posters exist', () => {
-  for (const r of ['demo-reel', 'live-reel']) assert.ok(size(`media/video/${r}-poster.jpg`) > 0, r);
+test('every file the manifest points at exists', () => {
+  for (const f of refs) assert.ok(fs.existsSync(f) && size(f) > 0, f);
 });
 
-test('exactly 10 photos at 1600 and 800', () => {
-  const img = fs.readdirSync('media/img');
-  assert.equal(img.filter(f => f.endsWith('-1600.webp')).length, 10);
-  assert.equal(img.filter(f => f.endsWith('-800.webp')).length, 10);
+test('every guide has pages and a page size', () => {
+  for (const g of manifest.guides) assert.ok(g.pages.length > 0 && g.w > 0 && g.h > 0, g.title);
+});
+
+test('guide pages are each under 1 MB, logo clips under 8 MB', () => {
+  for (const g of manifest.guides) for (const p of g.pages) assert.ok(size(p.src) < 1 * MB, p.src);
+  for (const m of manifest.motion) assert.ok(size(m.src) < 8 * MB, m.src);
 });
 
 test('no file under media/ is 50 MB or more', () => {
   for (const f of walk('media')) assert.ok(size(f) < 50 * MB, f);
-});
-
-test('reel posters show footage, not the near-black logo sting', async () => {
-  const sharp = (await import('sharp')).default;
-  for (const r of ['demo-reel', 'live-reel']) {
-    const { channels } = await sharp(`media/video/${r}-poster.jpg`).stats();
-    const mean = channels.slice(0, 3).reduce((n, c) => n + c.mean, 0) / 3;
-    assert.ok(mean > 30, `${r} poster mean brightness ${mean.toFixed(1)}`);
-  }
 });

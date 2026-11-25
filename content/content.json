@@ -1,0 +1,28 @@
+{
+  "logos": [
+    { "title": "Placeholder 01", "src": "content/placeholder/logo-1.svg" },
+    { "title": "Placeholder 02", "src": "content/placeholder/logo-2.svg" },
+    { "title": "Placeholder 03", "src": "content/placeholder/logo-3.svg" },
+    { "title": "Placeholder 04", "src": "content/placeholder/logo-4.svg", "bg": "light" },
+    { "title": "Placeholder 05", "src": "content/placeholder/logo-5.svg" },
+    { "title": "Placeholder 06", "src": "content/placeholder/logo-6.svg" }
+  ],
+  "motion": [
+    { "title": "Placeholder clip A", "src": "content/placeholder/motion-a.mp4" },
+    { "title": "Placeholder clip B", "src": "content/placeholder/motion-b.mp4" },
+    { "title": "Placeholder clip C", "src": "content/placeholder/motion-c.mp4" }
+  ],
+  "guides": [
+    { "title": "Placeholder guide A", "note": "Brand guidelines", "src": "content/placeholder/guide-a.pdf" },
+    { "title": "Placeholder guide B", "note": "Brand guidelines", "src": "content/placeholder/guide-b.pdf" }
+  ],
+  "sites": [
+    { "title": "Placeholder site A", "url": "https://example.com", "src": "content/placeholder/site-a.png" },
+    { "title": "Placeholder site B", "url": "https://example.com", "src": "content/placeholder/site-b.png" }
+  ],
+  "extensions": [
+    { "title": "Placeholder merch", "src": "content/placeholder/ext-a.png", "wide": true },
+    { "title": "Placeholder poster", "src": "content/placeholder/ext-b.png" },
+    { "title": "Placeholder signage", "src": "content/placeholder/ext-c.png" }
+  ]
+}
