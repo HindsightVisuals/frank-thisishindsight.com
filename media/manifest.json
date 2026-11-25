@@ -1,153 +1,447 @@
 {
   "logos": [
     {
-      "title": "Placeholder 01",
-      "src": "media/logos/01-placeholder-01.svg",
+      "title": "Belay Bioscience",
+      "src": "media/logos/01-belay-bioscience.svg",
       "bg": "dark"
     },
     {
-      "title": "Placeholder 02",
-      "src": "media/logos/02-placeholder-02.svg",
+      "title": "Belay icon",
+      "src": "media/logos/02-belay-icon.svg",
       "bg": "dark"
     },
     {
-      "title": "Placeholder 03",
-      "src": "media/logos/03-placeholder-03.svg",
+      "title": "Eternal",
+      "src": "media/logos/03-eternal.svg",
       "bg": "dark"
     },
     {
-      "title": "Placeholder 04",
-      "src": "media/logos/04-placeholder-04.svg",
-      "bg": "light"
-    },
-    {
-      "title": "Placeholder 05",
-      "src": "media/logos/05-placeholder-05.svg",
+      "title": "Eternal icon",
+      "src": "media/logos/04-eternal-icon.svg",
       "bg": "dark"
     },
     {
-      "title": "Placeholder 06",
-      "src": "media/logos/06-placeholder-06.svg",
+      "title": "Fusion wordmark",
+      "src": "media/logos/05-fusion-wordmark.svg",
+      "bg": "dark"
+    },
+    {
+      "title": "Fusion icon",
+      "src": "media/logos/06-fusion-icon.svg",
+      "bg": "dark"
+    },
+    {
+      "title": "Brella",
+      "src": "media/logos/07-brella.svg",
+      "bg": "dark"
+    },
+    {
+      "title": "Brella icon",
+      "src": "media/logos/08-brella-icon.svg",
+      "bg": "dark"
+    },
+    {
+      "title": "Otto",
+      "src": "media/logos/09-otto.svg",
+      "bg": "dark"
+    },
+    {
+      "title": "Otto icon",
+      "src": "media/logos/10-otto-icon.svg",
+      "bg": "dark"
+    },
+    {
+      "title": "Integrate",
+      "src": "media/logos/11-integrate.svg",
+      "bg": "dark"
+    },
+    {
+      "title": "Integrate icon",
+      "src": "media/logos/12-integrate-icon.svg",
+      "bg": "dark"
+    },
+    {
+      "title": "WES",
+      "src": "media/logos/13-wes.svg",
+      "bg": "dark"
+    },
+    {
+      "title": "WES icon",
+      "src": "media/logos/14-wes-icon.svg",
+      "bg": "dark"
+    },
+    {
+      "title": "Roamly",
+      "src": "media/logos/15-roamly.svg",
+      "bg": "dark"
+    },
+    {
+      "title": "Featured",
+      "src": "media/logos/16-featured.svg",
       "bg": "dark"
     }
   ],
   "motion": [
     {
-      "title": "Placeholder clip A",
-      "src": "media/motion/01-placeholder-clip-a.mp4",
-      "poster": "media/motion/01-placeholder-clip-a.jpg"
+      "title": "Fusion",
+      "src": "media/motion/01-fusion.mp4",
+      "poster": "media/motion/01-fusion.jpg"
     },
     {
-      "title": "Placeholder clip B",
-      "src": "media/motion/02-placeholder-clip-b.mp4",
-      "poster": "media/motion/02-placeholder-clip-b.jpg"
+      "title": "Juan Valdez",
+      "src": "media/motion/02-juan-valdez.mp4",
+      "poster": "media/motion/02-juan-valdez.jpg"
     },
     {
-      "title": "Placeholder clip C",
-      "src": "media/motion/03-placeholder-clip-c.mp4",
-      "poster": "media/motion/03-placeholder-clip-c.jpg"
+      "title": "Featured",
+      "src": "media/motion/03-featured.mp4",
+      "poster": "media/motion/03-featured.jpg"
+    },
+    {
+      "title": "Kursa",
+      "src": "media/motion/04-kursa.mp4",
+      "poster": "media/motion/04-kursa.jpg"
+    },
+    {
+      "title": "Thought Process",
+      "src": "media/motion/05-thought-process.mp4",
+      "poster": "media/motion/05-thought-process.jpg"
     }
   ],
   "guides": [
     {
-      "title": "Placeholder guide A",
+      "title": "Eternal",
       "note": "Brand guidelines",
-      "w": 1200,
-      "h": 675,
+      "w": 1920,
+      "h": 1080,
       "pages": [
         {
-          "src": "media/guides/01-placeholder-guide-a/01-2000.webp",
-          "small": "media/guides/01-placeholder-guide-a/01-1000.webp"
+          "src": "media/guides/01-eternal/01-2000.webp",
+          "small": "media/guides/01-eternal/01-1000.webp"
         },
         {
-          "src": "media/guides/01-placeholder-guide-a/02-2000.webp",
-          "small": "media/guides/01-placeholder-guide-a/02-1000.webp"
+          "src": "media/guides/01-eternal/02-2000.webp",
+          "small": "media/guides/01-eternal/02-1000.webp"
         },
         {
-          "src": "media/guides/01-placeholder-guide-a/03-2000.webp",
-          "small": "media/guides/01-placeholder-guide-a/03-1000.webp"
+          "src": "media/guides/01-eternal/03-2000.webp",
+          "small": "media/guides/01-eternal/03-1000.webp"
         },
         {
-          "src": "media/guides/01-placeholder-guide-a/04-2000.webp",
-          "small": "media/guides/01-placeholder-guide-a/04-1000.webp"
+          "src": "media/guides/01-eternal/04-2000.webp",
+          "small": "media/guides/01-eternal/04-1000.webp"
         },
         {
-          "src": "media/guides/01-placeholder-guide-a/05-2000.webp",
-          "small": "media/guides/01-placeholder-guide-a/05-1000.webp"
+          "src": "media/guides/01-eternal/05-2000.webp",
+          "small": "media/guides/01-eternal/05-1000.webp"
         },
         {
-          "src": "media/guides/01-placeholder-guide-a/06-2000.webp",
-          "small": "media/guides/01-placeholder-guide-a/06-1000.webp"
+          "src": "media/guides/01-eternal/06-2000.webp",
+          "small": "media/guides/01-eternal/06-1000.webp"
         },
         {
-          "src": "media/guides/01-placeholder-guide-a/07-2000.webp",
-          "small": "media/guides/01-placeholder-guide-a/07-1000.webp"
+          "src": "media/guides/01-eternal/07-2000.webp",
+          "small": "media/guides/01-eternal/07-1000.webp"
         },
         {
-          "src": "media/guides/01-placeholder-guide-a/08-2000.webp",
-          "small": "media/guides/01-placeholder-guide-a/08-1000.webp"
+          "src": "media/guides/01-eternal/08-2000.webp",
+          "small": "media/guides/01-eternal/08-1000.webp"
+        },
+        {
+          "src": "media/guides/01-eternal/09-2000.webp",
+          "small": "media/guides/01-eternal/09-1000.webp"
+        },
+        {
+          "src": "media/guides/01-eternal/10-2000.webp",
+          "small": "media/guides/01-eternal/10-1000.webp"
+        },
+        {
+          "src": "media/guides/01-eternal/11-2000.webp",
+          "small": "media/guides/01-eternal/11-1000.webp"
+        },
+        {
+          "src": "media/guides/01-eternal/12-2000.webp",
+          "small": "media/guides/01-eternal/12-1000.webp"
+        },
+        {
+          "src": "media/guides/01-eternal/13-2000.webp",
+          "small": "media/guides/01-eternal/13-1000.webp"
+        },
+        {
+          "src": "media/guides/01-eternal/14-2000.webp",
+          "small": "media/guides/01-eternal/14-1000.webp"
+        },
+        {
+          "src": "media/guides/01-eternal/15-2000.webp",
+          "small": "media/guides/01-eternal/15-1000.webp"
         }
       ]
     },
     {
-      "title": "Placeholder guide B",
+      "title": "Belay Bioscience",
       "note": "Brand guidelines",
-      "w": 1200,
-      "h": 675,
+      "w": 1920,
+      "h": 1080,
       "pages": [
         {
-          "src": "media/guides/02-placeholder-guide-b/01-2000.webp",
-          "small": "media/guides/02-placeholder-guide-b/01-1000.webp"
+          "src": "media/guides/02-belay-bioscience/01-2000.webp",
+          "small": "media/guides/02-belay-bioscience/01-1000.webp"
         },
         {
-          "src": "media/guides/02-placeholder-guide-b/02-2000.webp",
-          "small": "media/guides/02-placeholder-guide-b/02-1000.webp"
+          "src": "media/guides/02-belay-bioscience/02-2000.webp",
+          "small": "media/guides/02-belay-bioscience/02-1000.webp"
         },
         {
-          "src": "media/guides/02-placeholder-guide-b/03-2000.webp",
-          "small": "media/guides/02-placeholder-guide-b/03-1000.webp"
+          "src": "media/guides/02-belay-bioscience/03-2000.webp",
+          "small": "media/guides/02-belay-bioscience/03-1000.webp"
         },
         {
-          "src": "media/guides/02-placeholder-guide-b/04-2000.webp",
-          "small": "media/guides/02-placeholder-guide-b/04-1000.webp"
+          "src": "media/guides/02-belay-bioscience/04-2000.webp",
+          "small": "media/guides/02-belay-bioscience/04-1000.webp"
         },
         {
-          "src": "media/guides/02-placeholder-guide-b/05-2000.webp",
-          "small": "media/guides/02-placeholder-guide-b/05-1000.webp"
+          "src": "media/guides/02-belay-bioscience/05-2000.webp",
+          "small": "media/guides/02-belay-bioscience/05-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/06-2000.webp",
+          "small": "media/guides/02-belay-bioscience/06-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/07-2000.webp",
+          "small": "media/guides/02-belay-bioscience/07-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/08-2000.webp",
+          "small": "media/guides/02-belay-bioscience/08-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/09-2000.webp",
+          "small": "media/guides/02-belay-bioscience/09-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/10-2000.webp",
+          "small": "media/guides/02-belay-bioscience/10-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/11-2000.webp",
+          "small": "media/guides/02-belay-bioscience/11-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/12-2000.webp",
+          "small": "media/guides/02-belay-bioscience/12-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/13-2000.webp",
+          "small": "media/guides/02-belay-bioscience/13-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/14-2000.webp",
+          "small": "media/guides/02-belay-bioscience/14-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/15-2000.webp",
+          "small": "media/guides/02-belay-bioscience/15-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/16-2000.webp",
+          "small": "media/guides/02-belay-bioscience/16-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/17-2000.webp",
+          "small": "media/guides/02-belay-bioscience/17-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/18-2000.webp",
+          "small": "media/guides/02-belay-bioscience/18-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/19-2000.webp",
+          "small": "media/guides/02-belay-bioscience/19-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/20-2000.webp",
+          "small": "media/guides/02-belay-bioscience/20-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/21-2000.webp",
+          "small": "media/guides/02-belay-bioscience/21-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/22-2000.webp",
+          "small": "media/guides/02-belay-bioscience/22-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/23-2000.webp",
+          "small": "media/guides/02-belay-bioscience/23-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/24-2000.webp",
+          "small": "media/guides/02-belay-bioscience/24-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/25-2000.webp",
+          "small": "media/guides/02-belay-bioscience/25-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/26-2000.webp",
+          "small": "media/guides/02-belay-bioscience/26-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/27-2000.webp",
+          "small": "media/guides/02-belay-bioscience/27-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/28-2000.webp",
+          "small": "media/guides/02-belay-bioscience/28-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/29-2000.webp",
+          "small": "media/guides/02-belay-bioscience/29-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/30-2000.webp",
+          "small": "media/guides/02-belay-bioscience/30-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/31-2000.webp",
+          "small": "media/guides/02-belay-bioscience/31-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/32-2000.webp",
+          "small": "media/guides/02-belay-bioscience/32-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/33-2000.webp",
+          "small": "media/guides/02-belay-bioscience/33-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/34-2000.webp",
+          "small": "media/guides/02-belay-bioscience/34-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/35-2000.webp",
+          "small": "media/guides/02-belay-bioscience/35-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/36-2000.webp",
+          "small": "media/guides/02-belay-bioscience/36-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/37-2000.webp",
+          "small": "media/guides/02-belay-bioscience/37-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/38-2000.webp",
+          "small": "media/guides/02-belay-bioscience/38-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/39-2000.webp",
+          "small": "media/guides/02-belay-bioscience/39-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/40-2000.webp",
+          "small": "media/guides/02-belay-bioscience/40-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/41-2000.webp",
+          "small": "media/guides/02-belay-bioscience/41-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/42-2000.webp",
+          "small": "media/guides/02-belay-bioscience/42-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/43-2000.webp",
+          "small": "media/guides/02-belay-bioscience/43-1000.webp"
+        },
+        {
+          "src": "media/guides/02-belay-bioscience/44-2000.webp",
+          "small": "media/guides/02-belay-bioscience/44-1000.webp"
         }
       ]
     }
   ],
   "sites": [
     {
-      "title": "Placeholder site A",
-      "url": "https://example.com",
-      "src": "media/sites/01-placeholder-site-a.webp"
+      "title": "LoFli",
+      "url": "https://lofliballs.com",
+      "src": "media/sites/01-lofli.webp"
     },
     {
-      "title": "Placeholder site B",
-      "url": "https://example.com",
-      "src": "media/sites/02-placeholder-site-b.webp"
+      "title": "Spy Hop",
+      "url": "https://spyhop.org",
+      "src": "media/sites/02-spy-hop.webp"
+    },
+    {
+      "title": "Addax Outdoors",
+      "url": "https://addaxoutdoors.com/",
+      "src": "media/sites/03-addax-outdoors.webp"
     }
   ],
-  "extensions": [
+  "artwork": [
     {
-      "title": "Placeholder merch",
-      "src": "media/ext/01-placeholder-merch-1600.webp",
-      "small": "media/ext/01-placeholder-merch-800.webp",
-      "wide": true
+      "title": "VCTRE",
+      "src": "media/art/01-vctre-1200.webp",
+      "small": "media/art/01-vctre-600.webp"
     },
     {
-      "title": "Placeholder poster",
-      "src": "media/ext/02-placeholder-poster-1600.webp",
-      "small": "media/ext/02-placeholder-poster-800.webp",
-      "wide": false
+      "title": "VCTRE single",
+      "src": "media/art/02-vctre-single-1200.webp",
+      "small": "media/art/02-vctre-single-600.webp"
     },
     {
-      "title": "Placeholder signage",
-      "src": "media/ext/03-placeholder-signage-1600.webp",
-      "small": "media/ext/03-placeholder-signage-800.webp",
-      "wide": false
+      "title": "Humandala",
+      "src": "media/art/03-humandala-1200.webp",
+      "small": "media/art/03-humandala-600.webp"
+    },
+    {
+      "title": "Fowl Play",
+      "src": "media/art/04-fowl-play-1200.webp",
+      "small": "media/art/04-fowl-play-600.webp"
+    },
+    {
+      "title": "Fylum",
+      "src": "media/art/05-fylum-1200.webp",
+      "small": "media/art/05-fylum-600.webp"
+    },
+    {
+      "title": "Mindtality",
+      "src": "media/art/06-mindtality-1200.webp",
+      "small": "media/art/06-mindtality-600.webp"
+    },
+    {
+      "title": "EOS — Continuum",
+      "src": "media/art/07-eos-continuum-1200.webp",
+      "small": "media/art/07-eos-continuum-600.webp"
+    },
+    {
+      "title": "FIKA",
+      "src": "media/art/08-fika-1200.webp",
+      "small": "media/art/08-fika-600.webp"
     }
-  ]
+  ],
+  "flyers": [
+    {
+      "title": "Cohesion",
+      "src": "media/flyers/01-cohesion-1200.webp",
+      "small": "media/flyers/01-cohesion-600.webp"
+    },
+    {
+      "title": "Cohesion — animated",
+      "video": "media/flyers/02-cohesion-animated.mp4",
+      "poster": "media/flyers/02-cohesion-animated.jpg"
+    },
+    {
+      "title": "Humandala — Black Box",
+      "src": "media/flyers/03-humandala-black-box-1200.webp",
+      "small": "media/flyers/03-humandala-black-box-600.webp"
+    },
+    {
+      "title": "Humandala — Black Box — animated",
+      "video": "media/flyers/04-humandala-black-box-animated.mp4",
+      "poster": "media/flyers/04-humandala-black-box-animated.jpg"
+    }
+  ],
+  "extensions": []
 }

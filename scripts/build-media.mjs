@@ -10,9 +10,10 @@ import * as mupdf from 'mupdf';
 
 const CONTENT = 'content/content.json';
 const OUT = 'media';
-const MANAGED = ['guides', 'logos', 'motion', 'sites', 'ext'];   // build-owned folders under media/
+const MANAGED = ['guides', 'logos', 'motion', 'sites', 'art', 'flyers', 'ext'];   // build-owned folders under media/
 const GUIDE_WIDTHS = [2000, 1000];
 const PHOTO_WIDTHS = [1600, 800];
+const ART_WIDTHS = [1200, 600];
 const SITE_RATIO = 16 / 10;
 
 const written = new Set();
@@ -62,15 +63,26 @@ async function guides(items) {
   return out;
 }
 
+// Logos are shown white on black. Every fill and stroke colour in an SVG becomes white, except the colours an
+// item lists in `knockout`, which become black: a background plate, or detail cut out of the mark. Shapes with
+// no colour of their own (black by SVG default) follow the root fill, so `"default"` in `knockout` keeps them
+// black. `"color": "original"` leaves an SVG untouched.
+function whiten(svg, knockout = []) {
+  const out = new Set(knockout.map(c => c.toLowerCase()));
+  return svg
+    .replace(/\b(fill|stroke)(\s*[:=]\s*["']?\s*)(#[0-9a-f]{3,8}|white|black|rgba?\([^)]*\))/gi, (_, prop, sep, c) => `${prop}${sep}${out.has(c.toLowerCase()) ? '#000' : '#fff'}`)
+    .replace(/<svg\b(?![^>]*\sfill=)/i, `<svg fill="${out.has('default') ? '#000' : '#fff'}"`);
+}
+
 async function logos(items) {
   const out = [];
   for (const [i, l] of items.entries()) {
     const src = source(l, 'logo');
     const svg = path.extname(src).toLowerCase() === '.svg';
     const file = keep(path.join(OUT, 'logos', `${slugify(l.title, i)}.${svg ? 'svg' : 'webp'}`));
-    if (!fresh(file, src)) {
-      if (svg) fs.copyFileSync(src, file);
-      else await sharp(src).rotate().trim().resize(900, 900, { fit: 'inside', withoutEnlargement: true }).webp({ quality: 90 }).toFile(file);
+    if (svg) fs.writeFileSync(file, l.color === 'original' ? fs.readFileSync(src, 'utf8') : whiten(fs.readFileSync(src, 'utf8'), l.knockout));
+    else if (!fresh(file, src)) {
+      await sharp(src).rotate().trim().resize(900, 900, { fit: 'inside', withoutEnlargement: true }).webp({ quality: 90 }).toFile(file);
     }
     out.push({ title: l.title ?? '', src: url(file), bg: l.bg === 'light' ? 'light' : 'dark' });
   }
@@ -85,15 +97,48 @@ async function motion(items) {
     const slug = slugify(m.title, i);
     const file = keep(path.join(OUT, 'motion', `${slug}.mp4`));
     const poster = keep(path.join(OUT, 'motion', `${slug}.jpg`));
-    if (!fresh(file, src)) {
-      run(['-i', src, '-c:v', 'libx264', '-preset', 'slow', '-crf', '24', '-pix_fmt', 'yuv420p',
-        '-vf', "scale='min(1280,iw)':-2", '-movflags', '+faststart', '-an', file]);
-    }
-    // The poster is the last frame: a logo animation usually ends on the finished logo.
-    if (!fresh(poster, src)) run(['-sseof', '-0.2', '-i', file, '-frames:v', '1', '-update', '1', '-q:v', '4', poster]);
+    clip(m, src, file, poster, 1280, 24);
     out.push({ title: m.title ?? '', src: url(file), poster: url(poster) });
   }
   console.log(`motion: ${out.length}`);
+  return out;
+}
+
+// Encodes a muted web clip and its poster. `start` / `end` (seconds) cut a piece out of a longer source.
+// The poster is the last frame, since a logo animation usually ends on the finished logo; `poster` (seconds
+// into the cut clip) picks another frame when the clip ends on black.
+function clip(item, src, file, poster, width, crf) {
+  if (!fresh(file, src)) {
+    const cut = [...(item.start != null ? ['-ss', String(item.start)] : []), ...(item.end != null ? ['-to', String(item.end)] : [])];
+    run([...cut, '-i', src, '-c:v', 'libx264', '-preset', 'slow', '-crf', String(crf), '-pix_fmt', 'yuv420p',
+      '-vf', `scale='min(${width},iw)':-2`, '-movflags', '+faststart', '-an', file]);
+  }
+  if (!fresh(poster, src)) {
+    const at = item.poster != null ? ['-ss', String(item.poster)] : ['-sseof', '-0.2'];
+    run([...at, '-i', file, '-frames:v', '1', '-update', '1', '-q:v', '4', poster]);
+  }
+}
+
+// A flyer is a still (JPG, PNG) or an animated one (MP4, MOV); both sit in the same grid.
+async function flyers(items) {
+  const out = [];
+  for (const [i, f] of items.entries()) {
+    const src = source(f, 'flyer');
+    const slug = slugify(f.title, i);
+    if (/\.(mp4|mov|webm)$/i.test(src)) {
+      const file = keep(path.join(OUT, 'flyers', `${slug}.mp4`));
+      const poster = keep(path.join(OUT, 'flyers', `${slug}.jpg`));
+      clip(f, src, file, poster, 800, 27);
+      out.push({ title: f.title ?? '', video: url(file), poster: url(poster) });
+    } else {
+      const files = ART_WIDTHS.map(w => keep(path.join(OUT, 'flyers', `${slug}-${w}.webp`)));
+      for (const [k, w] of ART_WIDTHS.entries()) {
+        if (!fresh(files[k], src)) await sharp(src).rotate().resize({ width: w }).webp({ quality: 80 }).toFile(files[k]);
+      }
+      out.push({ title: f.title ?? '', src: url(files[0]), small: url(files[1]) });
+    }
+  }
+  console.log(`flyers: ${out.length}`);
   return out;
 }
 
@@ -107,6 +152,21 @@ async function sites(items) {
     out.push({ title: s.title ?? '', url: s.url ?? '', src: url(file) });
   }
   console.log(`sites: ${out.length}`);
+  return out;
+}
+
+async function artwork(items) {
+  const out = [];
+  for (const [i, a] of items.entries()) {
+    const src = source(a, 'artwork');
+    const slug = slugify(a.title, i);
+    const files = ART_WIDTHS.map(w => keep(path.join(OUT, 'art', `${slug}-${w}.webp`)));
+    for (const [k, w] of ART_WIDTHS.entries()) {
+      if (!fresh(files[k], src)) await sharp(src).rotate().resize(w, w, { fit: 'cover' }).webp({ quality: 80 }).toFile(files[k]);
+    }
+    out.push({ title: a.title ?? '', src: url(files[0]), small: url(files[1]) });
+  }
+  console.log(`artwork: ${out.length}`);
   return out;
 }
 
@@ -143,6 +203,8 @@ const manifest = {
   motion: await motion(content.motion ?? []),
   guides: await guides(content.guides ?? []),
   sites: await sites(content.sites ?? []),
+  artwork: await artwork(content.artwork ?? []),
+  flyers: await flyers(content.flyers ?? []),
   extensions: await extensions(content.extensions ?? []),
 };
 prune();

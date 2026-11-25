@@ -16,6 +16,7 @@ export const PARALLAX_MAX = 0.012;   // uv; must stay under (1 - 1/BASE_OVERSCAN
 const PARALLAX_EASE = 0.06;   // per-frame lerp toward the target
 const PATTERN_LUM = 0.24;     // the pattern's brightness on black: faint, so the work wins
 const IDLE_PERIOD_S = 40;     // touch screens: slow Lissajous drift instead of a cursor
+export const SCROLL_PARALLAX = 0.12; // touch screens: the pattern scrolls at this fraction of the page's speed
 
 const VS = `attribute vec2 p; varying vec2 vUv; void main(){ vUv = p * 0.5 + 0.5; gl_Position = vec4(p, 0., 1.); }`;
 
@@ -55,6 +56,8 @@ varying vec2 vUv;
 uniform sampler2D uState; uniform vec2 uOffset; uniform float uOverscan; uniform float uLum;
 void main(){
   vec2 uvZ = (vUv - 0.5) / uOverscan + 0.5 + uOffset;
+  // The scroll parallax travels further than the overscan margin, so y tiles, mirrored: no seam at the joins.
+  uvZ.y = 1.0 - abs(mod(uvZ.y, 2.0) - 1.0);
   float B = texture2D(uState, uvZ).g;
   float mask = smoothstep(0.18, 0.22, B);
   gl_FragColor = vec4(vec3(mask * uLum), 1.0);
@@ -63,6 +66,12 @@ void main(){
 /** Screen uv (0..1, y up) → sim uv under the view's overscan + parallax offset. */
 export function screenToSim(sx, sy, offset, overscan = BASE_OVERSCAN) {
   return [(sx - 0.5) / overscan + 0.5 + offset[0], (sy - 0.5) / overscan + 0.5 + offset[1]];
+}
+
+/** How far (sim uv, y up) the pattern has travelled for a page scrolled `scrollY` px in a `viewH` px viewport.
+ * Negative: the pattern moves up with the page, only slower, so it reads as sitting further back. */
+export function scrollOffset(scrollY, viewH, rate = SCROLL_PARALLAX) {
+  return viewH > 0 && scrollY ? -(scrollY / viewH) * rate : 0;
 }
 
 export function startRD(canvas) {
@@ -221,7 +230,8 @@ export function startRD(canvas) {
     gl.bindFramebuffer(gl.FRAMEBUFFER, null);
     gl.viewport(0, 0, canvas.width, canvas.height);
     gl.useProgram(viewP.pr);
-    gl.uniform2f(viewP.u.uOffset, offset[0], offset[1]);
+    // Not eased: a parallax that lags the finger reads as jitter.
+    gl.uniform2f(viewP.u.uOffset, offset[0], offset[1] + (finePointer ? 0 : scrollOffset(scrollY, innerHeight)));
     gl.uniform1f(viewP.u.uOverscan, BASE_OVERSCAN);
     gl.uniform1f(viewP.u.uLum, PATTERN_LUM);
     gl.uniform1i(viewP.u.uState, 0);

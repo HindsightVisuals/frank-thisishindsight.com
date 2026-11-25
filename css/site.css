@@ -111,13 +111,14 @@ main { padding: var(--nav-h) var(--pad) 0; max-width: 1680px; margin: 0 auto; }
 .pitch-note a { border-bottom: 1px solid #fff; }
 
 /* ---------- logos ---------- */
-.logos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-.tile { position: relative; margin: 0; aspect-ratio: 4 / 3; display: grid; place-items: center; background: rgba(0, 0, 0, 0.72); border: 1px solid var(--line); }
+.logos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.tile { position: relative; margin: 0; aspect-ratio: 4 / 3; display: grid; place-items: center; background: #000; border: 1px solid var(--line); }
 .tile.light { background: #fff; color: #000; }
-.tile img { width: 56%; height: 56%; object-fit: contain; }
+/* out of flow: an SVG with only a viewBox has no size of its own and would otherwise stretch its tile */
+.tile img { position: absolute; inset: 22%; width: 56%; height: 56%; object-fit: contain; }
 .tile figcaption, .cap { position: absolute; left: 12px; bottom: 10px; font-size: 10px; opacity: 0.6; }
-@media (max-width: 1100px) { .logos { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 600px) { .logos { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 1100px) { .logos { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .logos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* ---------- logos in motion ---------- */
 .motion { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
@@ -130,6 +131,9 @@ main { padding: var(--nav-h) var(--pad) 0; max-width: 1680px; margin: 0 auto; }
 
 /* ---------- brand guide viewer: one page per swipe ---------- */
 .deck-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+/* the guide you are not looking at is the loud one (WES green), so it is obvious there is another to open */
+.deck-tabs .btn[aria-selected="false"] { background: #61e891; border-color: #61e891; color: #000; }
+.deck-tabs .btn[aria-selected="false"]:hover, .deck-tabs .btn[aria-selected="false"]:focus-visible { background: #fff; border-color: #fff; }
 /* as wide as fits, but never taller than the screen (--ar is the page's width / height) */
 .deck-wrap { --ar: 1.7778; width: min(100%, calc((100svh - var(--nav-h) - 240px) * var(--ar))); margin: 0 auto; }
 .deck {
@@ -147,12 +151,26 @@ main { padding: var(--nav-h) var(--pad) 0; max-width: 1680px; margin: 0 auto; }
 .deck-progress i { display: block; height: 1px; width: 0; background: #fff; transition: width 200ms ease; }
 
 /* ---------- websites ---------- */
-.sites { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px 8px; }
+.sites { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 16px; }
 .site { display: block; }
 .site img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; background: #0a0a0a; border: 1px solid var(--line); }
 .site-meta { display: flex; justify-content: space-between; gap: 12px; padding-top: 10px; }
 .site:hover .site-url, .site:focus-visible .site-url { color: #fff; }
-@media (max-width: 700px) { .sites { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .sites { grid-template-columns: 1fr; } }
+
+/* ---------- cover artwork: square tiles ---------- */
+.art { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.art figure { position: relative; margin: 0; background: #0a0a0a; }
+.art img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
+.art .cap { opacity: 1; padding: 3px 8px; background: rgba(0, 0, 0, 0.6); }
+@media (max-width: 900px) { .art { grid-template-columns: repeat(2, 1fr); } }
+
+/* ---------- flyers: 4:5 tiles, stills and clips alike; contain, so an odd-shaped poster is never cropped ---------- */
+.flyers { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.flyers figure { position: relative; margin: 0; background: #0a0a0a; }
+.flyers img, .flyers video { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: contain; }
+.flyers .cap { opacity: 1; padding: 3px 8px; background: rgba(0, 0, 0, 0.6); }
+@media (max-width: 900px) { .flyers { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* ---------- brand extensions ---------- */
 /* a wide shot sets its row's height from its own shape; the 4:3 shots beside it stretch to match */
@@ -167,6 +185,7 @@ main { padding: var(--nav-h) var(--pad) 0; max-width: 1680px; margin: 0 auto; }
 
 #contact { padding-bottom: clamp(72px, 14vh, 160px); }
 #contact .about-copy { margin-bottom: 32px; }
+.contact-note { margin: 0; max-width: 62ch; font-size: clamp(15px, 1.25vw, 18px); }
 
 /* ---------- footer ---------- */
 .foot { display: flex; justify-content: space-between; gap: 16px; padding: 24px var(--pad) calc(24px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--line); }

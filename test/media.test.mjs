@@ -15,6 +15,8 @@ const refs = [
   ...manifest.motion.flatMap(m => [m.src, m.poster]),
   ...manifest.guides.flatMap(g => g.pages.flatMap(p => [p.src, p.small])),
   ...manifest.sites.map(s => s.src),
+  ...manifest.artwork.flatMap(a => [a.src, a.small]),
+  ...manifest.flyers.flatMap(f => f.video ? [f.video, f.poster] : [f.src, f.small]),
   ...manifest.extensions.flatMap(e => [e.src, e.small]),
 ];
 
@@ -23,7 +25,7 @@ test('loader video exists and is under 3 MB', () => {
 });
 
 test('the manifest matches content.json (run `npm run media` after editing it)', () => {
-  for (const key of ['logos', 'motion', 'guides', 'sites', 'extensions']) {
+  for (const key of ['logos', 'motion', 'guides', 'sites', 'artwork', 'flyers', 'extensions']) {
     assert.deepEqual(manifest[key].map(i => i.title), (content[key] ?? []).map(i => i.title), key);
   }
 });
@@ -39,6 +41,7 @@ test('every guide has pages and a page size', () => {
 test('guide pages are each under 1 MB, logo clips under 8 MB', () => {
   for (const g of manifest.guides) for (const p of g.pages) assert.ok(size(p.src) < 1 * MB, p.src);
   for (const m of manifest.motion) assert.ok(size(m.src) < 8 * MB, m.src);
+  for (const f of manifest.flyers) if (f.video) assert.ok(size(f.video) < 12 * MB, f.video);
 });
 
 test('no file under media/ is 50 MB or more', () => {

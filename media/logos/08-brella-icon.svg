@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg fill="#fff" id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 198 231">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <path class="cls-3" d="M95.33,102.67v124.56c-32.67-1.91-58.67-29.09-58.67-62.23v-62.33h58.67M99,99H33v66c0,36.45,29.55,66,66,66V99h0Z"/>
+      <path class="cls-3" d="M165,165c0,36.45-29.55,66-66,66v-99h57.13c5.65,9.72,8.87,20.97,8.87,33Z"/>
+      <path class="cls-2" d="M156.13,132h-57.13v-33c24.42,0,45.76,13.27,57.13,33Z"/>
+      <path class="cls-3" d="M99,0v33L33,99H0C0,44.33,44.33,0,99,0Z"/>
+      <polygon class="cls-1" points="99 33 99 99 33 99 99 33"/>
+      <path class="cls-3" d="M102.67,36.74c49.66,1.89,89.71,41.94,91.6,91.6h-36.06c-11.98-19.37-32.84-31.7-55.54-32.9v-58.69M99,33v66c24.42,0,45.76,13.27,57.13,33h41.87c0-54.67-44.33-99-99-99h0Z"/>
+    </g>
+  </g>
+</svg>

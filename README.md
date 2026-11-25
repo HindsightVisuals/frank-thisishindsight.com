@@ -9,7 +9,7 @@ websites and brand extensions, ending on a contact link.
 Static: `index.html`, `css/site.css`, `js/*.js`, with no build step for the page itself. The work sections are
 rendered in the browser from `media/manifest.json`. A section with no items is hidden, along with its nav link.
 
-**Everything in the work sections is currently a placeholder** (`content/placeholder/`).
+Site screenshots live in `content/sites/`. `content/placeholder/` holds the stand-in files the page was built with.
 
 ## Adding the real work
 
@@ -18,18 +18,20 @@ rendered in the browser from `media/manifest.json`. A section with no items is h
 
    | Section | `src` | Other fields |
    | --- | --- | --- |
-   | `logos` | SVG, PNG, JPG | `title`; `"bg": "light"` puts a dark logo on a white tile |
-   | `motion` | MP4, MOV | `title`. Encoded muted, loops while on screen |
+   | `logos` | SVG, PNG, JPG | `title`. SVGs are recoloured white on black; `"knockout": ["#1f1f1f"]` lists colours to turn black instead (a background plate, cut-out detail), `"color": "original"` leaves the file as it is, `"bg": "light"` gives a white tile |
+   | `motion` | MP4, MOV | `title`. Encoded muted, loops while on screen. Optional `start` / `end` (seconds) cut a piece out of a longer file; `poster` (seconds) picks the still when the clip ends on black |
    | `guides` | PDF | `title`, `note`; optional `"pages": [1, 2, 5]` to show only some pages |
    | `sites` | a screenshot | `title`, `url`. Cropped to 16:10 from the top |
-   | `extensions` | JPG, PNG | `title`; `"wide": true` spans two columns |
+   | `artwork` | JPG, PNG | `title`. Cover art, cropped square |
+| `flyers` | JPG, PNG, MP4, MOV | `title`. Stills and animated flyers share one 4:5 grid; videos take `start` / `end` / `poster` too |
+| `extensions` | JPG, PNG | `title`; `"wide": true` spans two columns |
 
 2. Run `npm install` once, then `npm run media`. It writes the web copies under `media/` and the manifest, skips
    outputs newer than their source, and deletes outputs that are no longer listed.
 3. Run `npm test`.
 4. Commit `content/content.json` and `media/`. The originals don't need to be in the repo.
 
-The message to Frank and the contact line are plain text in `index.html`, marked `DRAFT COPY`.
+The message to Frank and the closing line are plain text in `index.html`.
 
 ## Local preview
 

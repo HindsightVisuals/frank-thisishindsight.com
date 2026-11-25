@@ -29,22 +29,41 @@ function renderLogos(root, items) {
   }
 }
 
-function renderMotion(root, items, reduced) {
+// Muted clips that loop only while on screen (and show controls instead under reduced motion).
+function looper(root, reduced) {
   const io = new IntersectionObserver(entries => {
     for (const en of entries) {
       if (en.isIntersecting) en.target.play().catch(() => { en.target.controls = true; });
       else en.target.pause();
     }
   }, { threshold: 0.35 });
-  for (const m of items) {
-    const video = el('video', { muted: true, loop: true, playsInline: true, preload: 'none', poster: m.poster, src: m.src });
-    video.setAttribute('aria-label', `${m.title} logo animation`);
-    if (reduced) video.controls = true; else io.observe(video);
-    root.append(el('figure', { className: 'clip' }, video, el('figcaption', { className: 'label cap', textContent: m.title })));
-  }
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) for (const v of root.querySelectorAll('video')) v.pause();
   });
+  return (src, poster, label) => {
+    const video = el('video', { muted: true, loop: true, playsInline: true, preload: 'none', poster, src });
+    video.setAttribute('aria-label', label);
+    if (reduced) video.controls = true; else io.observe(video);
+    return video;
+  };
+}
+
+function renderMotion(root, items, reduced) {
+  const video = looper(root, reduced);
+  for (const m of items) {
+    root.append(el('figure', { className: 'clip' }, video(m.src, m.poster, `${m.title} logo animation`),
+      el('figcaption', { className: 'label cap', textContent: m.title })));
+  }
+}
+
+function renderFlyers(root, items, reduced) {
+  const video = looper(root, reduced);
+  for (const f of items) {
+    const media = f.video
+      ? video(f.video, f.poster, `${f.title} flyer`)
+      : img(f.src, `${f.title} flyer`, { small: { src: f.small, w: 600, full: 1200 }, sizes: '(max-width: 900px) 50vw, 25vw' });
+    root.append(el('figure', {}, media, el('figcaption', { className: 'label cap', textContent: f.title })));
+  }
 }
 
 function renderGuides(section, guides, reduced) {
@@ -115,6 +134,14 @@ function renderSites(root, items) {
   }
 }
 
+function renderArtwork(root, items) {
+  for (const a of items) {
+    root.append(el('figure', {},
+      img(a.src, `${a.title} cover artwork`, { small: { src: a.small, w: 600, full: 1200 }, sizes: '(max-width: 900px) 50vw, 25vw' }),
+      el('figcaption', { className: 'label cap', textContent: a.title })));
+  }
+}
+
 function renderExtensions(root, items) {
   for (const e of items) {
     root.append(el('figure', { className: e.wide ? 'wide' : '' },
@@ -133,6 +160,8 @@ export async function initWork(root = document) {
     motion: s => renderMotion(s.querySelector('.motion'), data.motion, reduced),
     guides: s => renderGuides(s, data.guides, reduced),
     sites: s => renderSites(s.querySelector('.sites'), data.sites),
+    artwork: s => renderArtwork(s.querySelector('.art'), data.artwork),
+    flyers: s => renderFlyers(s.querySelector('.flyers'), data.flyers, reduced),
     extensions: s => renderExtensions(s.querySelector('.ext'), data.extensions),
   };
   let n = 0;
