@@ -115,7 +115,7 @@ main { padding: var(--nav-h) var(--pad) 0; max-width: 1680px; margin: 0 auto; }
 .tile { position: relative; margin: 0; aspect-ratio: 4 / 3; display: grid; place-items: center; background: #000; border: 1px solid var(--line); }
 .tile.light { background: #fff; color: #000; }
 /* out of flow: an SVG with only a viewBox has no size of its own and would otherwise stretch its tile */
-.tile img { position: absolute; inset: 22%; width: 56%; height: 56%; object-fit: contain; }
+.tile img { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); object-fit: contain; }   /* width and height are set per logo by work.js */
 .tile figcaption, .cap { position: absolute; left: 12px; bottom: 10px; font-size: 10px; opacity: 0.6; }
 @media (max-width: 1100px) { .logos { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .logos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

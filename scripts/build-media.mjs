@@ -72,11 +72,34 @@ async function guides(items) {
 // item lists in `knockout`, which become black: a background plate, or detail cut out of the mark. Shapes with
 // no colour of their own (black by SVG default) follow the root fill, so `"default"` in `knockout` keeps them
 // black. `"color": "original"` leaves an SVG untouched.
-function whiten(svg, knockout = []) {
+function whiten(svg, knockout = [], black = '#000') {
   const out = new Set(knockout.map(c => c.toLowerCase()));
   return svg
-    .replace(/\b(fill|stroke)(\s*[:=]\s*["']?\s*)(#[0-9a-f]{3,8}|white|black|rgba?\([^)]*\))/gi, (_, prop, sep, c) => `${prop}${sep}${out.has(c.toLowerCase()) ? '#000' : '#fff'}`)
-    .replace(/<svg\b(?![^>]*\sfill=)/i, `<svg fill="${out.has('default') ? '#000' : '#fff'}"`);
+    .replace(/\b(fill|stroke)(\s*[:=]\s*["']?\s*)(#[0-9a-f]{3,8}|white|black|rgba?\([^)]*\))/gi, (_, prop, sep, c) => `${prop}${sep}${out.has(c.toLowerCase()) ? black : '#fff'}`)
+    .replace(/<svg\b(?![^>]*\sfill=)/i, `<svg fill="${out.has('default') ? black : '#fff'}"`);
+}
+
+// Crops an SVG's viewBox to its artwork, so every logo fills its own box and the page can size them alike
+// (some files carry a lot of empty canvas). `ink` is the same SVG with the knockout colours made transparent:
+// a background plate is not artwork. Returns the cropped SVG and its width / height.
+async function cropSvg(svg, ink) {
+  const vb = svg.match(/viewBox\s*=\s*["']\s*([-\d.e]+)[\s,]+([-\d.e]+)[\s,]+([-\d.e]+)[\s,]+([-\d.e]+)/i);
+  if (!vb) return { svg, ar: null };
+  const [x0, y0, vw, vh] = vb.slice(1).map(Number);
+  const W = 1200, H = Math.max(1, Math.round(W * vh / vw));
+  const sized = ink.replace(/<svg\b([^>]*)>/i, (_, attrs) => `<svg${attrs.replace(/\s(width|height)\s*=\s*["'][^"']*["']/gi, '')} width="${W}" height="${H}">`);
+  const { data, info } = await sharp(Buffer.from(sized)).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+  let l = info.width, t = info.height, r = -1, b = -1;
+  for (let y = 0; y < info.height; y++) for (let x = 0; x < info.width; x++) {
+    if (data[(y * info.width + x) * 4 + 3] > 8) { if (x < l) l = x; if (x > r) r = x; if (y < t) t = y; if (y > b) b = y; }
+  }
+  if (r < 0) return { svg, ar: vw / vh };
+  const k = vw / info.width, pad = 0.01 * Math.max(vw, vh);
+  const box = [x0 + l * k - pad, y0 + t * k - pad, (r - l + 1) * k + 2 * pad, (b - t + 1) * k + 2 * pad];
+  const cropped = svg.replace(/<svg\b([^>]*)>/i, (_, attrs) => '<svg' + attrs
+    .replace(/\s(width|height)\s*=\s*["'][^"']*["']/gi, '')
+    .replace(/viewBox\s*=\s*["'][^"']*["']/i, `viewBox="${box.map(n => +n.toFixed(3)).join(' ')}"`) + '>');
+  return { svg: cropped, ar: box[2] / box[3] };
 }
 
 async function logos(items) {
@@ -85,11 +108,20 @@ async function logos(items) {
     const src = source(l, 'logo');
     const svg = path.extname(src).toLowerCase() === '.svg';
     const file = keep(path.join(OUT, 'logos', `${slugify(l.title, i)}.${svg ? 'svg' : 'webp'}`));
-    if (svg) fs.writeFileSync(file, l.color === 'original' ? fs.readFileSync(src, 'utf8') : whiten(fs.readFileSync(src, 'utf8'), l.knockout));
-    else if (!fresh(file, src)) {
-      await sharp(src).rotate().trim().resize(900, 900, { fit: 'inside', withoutEnlargement: true }).webp({ quality: 90 }).toFile(file);
+    let ar;
+    if (svg) {
+      const raw = fs.readFileSync(src, 'utf8');
+      const art = l.color === 'original' ? raw : whiten(raw, l.knockout);
+      const cropped = await cropSvg(art, l.color === 'original' ? raw : whiten(raw, l.knockout, 'none'));
+      fs.writeFileSync(file, cropped.svg);
+      ar = cropped.ar;
+    } else {
+      if (!fresh(file, src)) await sharp(src).rotate().trim().resize(900, 900, { fit: 'inside', withoutEnlargement: true }).webp({ quality: 90 }).toFile(file);
+      const m = await sharp(file).metadata();
+      ar = m.width / m.height;
     }
-    out.push({ title: l.title ?? '', src: url(file), bg: l.bg === 'light' ? 'light' : 'dark' });
+    // ar: the artwork's width / height, which the page uses to give every logo the same visual weight
+    out.push({ title: l.title ?? '', src: url(file), bg: l.bg === 'light' ? 'light' : 'dark', ar: +(ar ?? 1).toFixed(3) });
   }
   console.log(`logos: ${out.length}`);
   return out;

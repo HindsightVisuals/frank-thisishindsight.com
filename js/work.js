@@ -22,10 +22,27 @@ function img(src, alt, { small, sizes, eager = false } = {}) {
   return i;
 }
 
+// The share of a 4:3 tile's area every logo covers, whatever its shape.
+export const LOGO_AREA = 0.05;
+const TILE_RATIO = 4 / 3;
+
+// A logo's box as fractions of its tile's width and height. Equal area, not equal width: a long wordmark and a
+// square icon then carry the same visual weight. `ar` is the artwork's width / height.
+export function logoBox(ar, area = LOGO_AREA) {
+  const a = ar > 0 ? ar : 1;
+  let w = Math.sqrt(area * a / TILE_RATIO), h = Math.sqrt(area * TILE_RATIO / a);
+  const fit = Math.min(1, 0.6 / w, 0.5 / h);   // an extreme shape shrinks to fit instead of crowding the tile
+  return { w: w * fit, h: h * fit };
+}
+
 function renderLogos(root, items) {
   for (const l of items) {
+    const logo = img(l.src, `${l.title} logo`);
+    const { w, h } = logoBox(l.ar);
+    logo.style.width = `${(w * 100).toFixed(2)}%`;
+    logo.style.height = `${(h * 100).toFixed(2)}%`;
     root.append(el('figure', { className: `tile ${l.bg === 'light' ? 'light' : ''}` },
-      img(l.src, `${l.title} logo`), el('figcaption', { className: 'label', textContent: l.title })));
+      logo, el('figcaption', { className: 'label', textContent: l.title })));
   }
 }
 

@@ -3,82 +3,98 @@
     {
       "title": "Belay Bioscience",
       "src": "media/logos/01-belay-bioscience.svg",
-      "bg": "dark"
+      "bg": "dark",
+      "ar": 2.84
     },
     {
       "title": "Belay icon",
       "src": "media/logos/02-belay-icon.svg",
-      "bg": "dark"
+      "bg": "dark",
+      "ar": 0.543
     },
     {
       "title": "Eternal",
       "src": "media/logos/03-eternal.svg",
-      "bg": "dark"
+      "bg": "dark",
+      "ar": 4.931
     },
     {
       "title": "Eternal icon",
       "src": "media/logos/04-eternal-icon.svg",
-      "bg": "dark"
+      "bg": "dark",
+      "ar": 0.75
     },
     {
       "title": "Fusion wordmark",
       "src": "media/logos/05-fusion-wordmark.svg",
-      "bg": "dark"
+      "bg": "dark",
+      "ar": 3.886
     },
     {
       "title": "Fusion icon",
       "src": "media/logos/06-fusion-icon.svg",
-      "bg": "dark"
+      "bg": "dark",
+      "ar": 0.673
     },
     {
       "title": "Brella",
       "src": "media/logos/07-brella.svg",
-      "bg": "dark"
+      "bg": "dark",
+      "ar": 3.497
     },
     {
       "title": "Brella icon",
       "src": "media/logos/08-brella-icon.svg",
-      "bg": "dark"
+      "bg": "dark",
+      "ar": 0.86
     },
     {
       "title": "Otto",
       "src": "media/logos/09-otto.svg",
-      "bg": "dark"
+      "bg": "dark",
+      "ar": 2.735
     },
     {
       "title": "Otto icon",
       "src": "media/logos/10-otto-icon.svg",
-      "bg": "dark"
+      "bg": "dark",
+      "ar": 1.011
     },
     {
       "title": "Integrate",
       "src": "media/logos/11-integrate.svg",
-      "bg": "dark"
+      "bg": "dark",
+      "ar": 3.611
     },
     {
       "title": "Integrate icon",
       "src": "media/logos/12-integrate-icon.svg",
-      "bg": "dark"
+      "bg": "dark",
+      "ar": 1.534
     },
     {
       "title": "WES",
       "src": "media/logos/13-wes.svg",
-      "bg": "dark"
+      "bg": "dark",
+      "ar": 3.255
     },
     {
       "title": "WES icon",
       "src": "media/logos/14-wes-icon.svg",
-      "bg": "dark"
+      "bg": "dark",
+      "ar": 0.797
     },
     {
       "title": "Roamly",
       "src": "media/logos/15-roamly.svg",
-      "bg": "dark"
+      "bg": "dark",
+      "ar": 2.88
     },
     {
       "title": "Featured",
       "src": "media/logos/16-featured.svg",
-      "bg": "dark"
+      "bg": "dark",
+      "ar": 3.778
     }
   ],
   "motion": [
